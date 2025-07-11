@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priya Sreetharan - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            font-size: 11pt;
+        }
+
+        .resume-container {
+            max-width: 8.5in;
+            margin: 20px auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .resume-content {
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: #718096;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(102, 126, 234, 0.05);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .contact-icon {
+            width: 16px;
+            height: 16px;
+            color: #667eea;
+        }
+
+        /* Section Headers */
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        /* Professional Summary */
+        .summary {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #4a5568;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .skill-list {
+            font-size: 0.9rem;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* Experience */
+        .experience-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+
+        .company {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .duration-location {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .duration {
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .location {
+            color: #718096;
+        }
+
+        .achievements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        .achievements li:before {
+            content: '▸';
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Education */
+        .education-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .school {
+            font-weight: 500;
+            color: #667eea;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-details {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        /* Download Button */
+        .download-btn {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 10pt;
+                color: black;
+                background: white;
+            }
+            
+            .resume-container {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .resume-content {
+                padding: 0.5in;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 1.5rem;
+            }
+
+            .experience-item {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+            }
+
+            .download-btn {
+                display: none;
+            }
+
+            .contact-item {
+                background: transparent;
+                border: none;
+                padding: 0;
+            }
+
+            .skill-category, .education-item {
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 10px;
+                border-radius: 12px;
+            }
+
+            .resume-content {
+                padding: 1.5rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .duration-location {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-btn {
+                position: static;
+                margin: 20px auto;
+                display: flex;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn" onclick="downloadPDF()">
+        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Download PDF
+    </button>
+
+    <script>
+        function downloadPDF() {
+            // Hide the download button for printing
+            const downloadBtn = document.querySelector('.download-btn');
+            downloadBtn.style.display = 'none';
+            
+            // Set document title for the PDF
+            document.title = 'Priya_Sreetharan_Resume';
+            
+            // Trigger print dialog
+            window.print();
+            
+            // Show the download button again after print dialog
+            setTimeout(() => {
+                downloadBtn.style.display = 'flex';
+            }, 1000);
+        }
+
+        // Handle print events
+        window.addEventListener('beforeprint', function() {
+            document.querySelector('.download-btn').style.display = 'none';
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.querySelector('.download-btn').style.display = 'flex';
+        });
+    </script>
+    
+    <div class="resume-container">
+        <div class="resume-content">
+            <div class="header">
+                <div class="name">PRIYA SREETHARAN</div>
+                <div class="title">Data Science Professional</div>
+                <div class="contact-info">
+                    <a href="mailto:pri.sreetharan@gmail.com" class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        pri.sreetharan@gmail.com
+                    </a>
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        Toronto, Canada
+                    </div>
+                    <a href="https://psreetharan.github.io/priyasreetharan.github.io" target="_blank" class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
+                        </svg>
+                        Portfolio
+                    </a>
+                    <a href="https://linkedin.com/in/priyasreetharan" target="_blank" class="contact-item">
+                        <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Professional Summary</div>
+                <div class="summary">
+                    Data Science professional with 10+ years of experience in Software Engineering and Data Science across various industries. Proven track record of leading high-functioning data science teams and delivering measurable business impact through advanced analytics, machine learning, and statistical modeling. Expertise in translating complex data insights into actionable business strategies, with experience managing stakeholders from C-suite to technical teams while leading organization-wide data initiatives.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Core Competencies</div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <div class="skill-category-title">Machine Learning & AI</div>
+                        <div class="skill-list">Machine Learning • Deep Learning • Time Series Forecasting • Recommender Systems • Causal AI • Statistical Analysis</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Data & Analytics</div>
+                        <div class="skill-list">Data Engineering • A/B Testing • Data Visualization • Statistical Modeling • Predictive Analytics</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Technical Skills</div>
+                        <div class="skill-list">Python • SQL • Flask • Docker • PostgreSQL • SSAS • RESTful APIs • Microservices</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Leadership & Management</div>
+                        <div class="skill-list">Team Management • Agile/Scrum • Project Roadmapping • Stakeholder Management • Cross-functional Leadership</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Professional Experience</div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Career Break - Family Care</div>
+                        <div class="company">Personal</div>
+                        <div class="duration-location">
+                            <div class="duration">Mar 2025 - Jul 2025</div>
+                            <div class="location">Toronto, Canada</div>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Took intentional career break to focus on family care for two young children (ages 3 and under) following back-to-back pregnancies</li>
+                        <li>Maintained technical skills through continued learning in advanced causal inference methodologies and cloud platform certifications</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Lead Data Scientist</div>
+                        <div class="company">Fiddlehead Technology (McCain Foods)</div>
+                        <div class="duration-location">
+                            <div class="duration">May 2024 - Feb 2025</div>
+                            <div class="location">Toronto, Canada</div>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Led and managed team of 6-8 data scientists while establishing performance benchmark standards and career development frameworks</li>
+                        <li>Led Causal AI initiative for 4 major QSR clients, solving complex problems including menu rationalization and dynamic pricing strategy</li>
+                        <li>Achieved 1.3% net-profit lift through menu rationalization solution, validated through controlled A/B experiment with deployment on Microsoft Azure</li>
+                        <li>Organized and delivered organization-wide Technical Causal Inference training program, developing comprehensive curriculum and training 50+ data professionals</li>
+                        <li>Developed comprehensive product vision and roadmap to standardize causal solutions across clients, reducing effort duplication and redundancy</li>
+                        <li>Served as Scrum Master while implementing Agile Development methodology across data science teams</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Lead Data Scientist</div>
+                        <div class="company">AutoZone Inc.</div>
+                        <div class="duration-location">
+                            <div class="duration">Aug 2021 - Dec 2023</div>
+                            <div class="location">Memphis, Tennessee</div>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Managed and mentored team of 6-8 data scientists, establishing performance benchmarks and driving professional development initiatives</li>
+                        <li>Guided organization's payroll decisions throughout pandemic, generating $36MM annual cost savings by improving forecast accuracy (RMSE) by 210 basis points</li>
+                        <li>Led planning and forecasting efforts across Retail and Commercial businesses using statistical and time series modeling deployed on GCP</li>
+                        <li>Optimized marketing spend achieving 4:1 ROAS through customer segmentation using unsupervised clustering algorithms</li>
+                        <li>Created comprehensive project roadmaps and identified opportunities driving incremental sales across multiple business units</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Senior Data Scientist</div>
+                        <div class="company">AutoZone Inc.</div>
+                        <div class="duration-location">
+                            <div class="duration">Oct 2020 - Aug 2021</div>
+                            <div class="location">Memphis, Tennessee</div>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Achieved 18% increase in average pieces sold through market basket analysis using Association Rule Learning for bundling strategies</li>
+                        <li>Generated $10MM incremental revenue by discovering predictable buying behavior patterns and driving cross-functional impulse buy tactics</li>
+                        <li>Delivered 2.5% net sales lift through customer service initiative optimization using seasonal component analysis and A/B testing</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Data Scientist</div>
+                        <div class="company">AutoZone Inc.</div>
+                        <div class="duration-location">
+                            <div class="duration">May 2019 - Oct 2020</div>
+                            <div class="location">Memphis, Tennessee</div>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Improved customer satisfaction score by 8% through multivariate regression modeling to identify regional sales drivers</li>
+                        <li>Developed $4MM cross-functional action plan by discovering key sales drivers during Tax season using component reuse methodology</li>
+                        <li>Conducted statistical tests to identify root causes of sales changes related to demographic mix shifts</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Business Intelligence Analyst</div>
+                        <div class="company">Energy Sense Finance LLC</div>
+                        <div class="duration-location">
+                            <div class="duration">Feb 2018 - May 2019</div>
+                            <div class="location">Tampa, Florida</div>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Built enterprise web platform for solar and energy efficiency valuation applications used in all 50 states, endorsed by Appraisal Institute</li>
+                        <li>Led full-stack development using Python, Flask, Docker, PostgreSQL and integrated third-party services (Twilio, Stripe) via RESTful APIs</li>
+                        <li>Designed Flask-based application with automated microservices for multi-source data collection and property valuation</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Software Engineer</div>
+                        <div class="company">Optum Global Solutions</div>
+                        <div class="duration-location">
+                            <div class="duration">Jun 2014 - Jun 2016</div>
+                            <div class="location">Chennai, India</div>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Designed News Recommendation Engine for physicians and authored research paper for international publication</li>
+                        <li>Enhanced application performance by 61% reduction in data retrieval time using SSAS cubes optimization</li>
+                        <li>Improved web page performance through advanced SQL query tuning and optimization techniques</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div class="education-item">
+                    <div class="degree">Master of Science in Business Intelligence and Information Systems (Data Science Track)</div>
+                    <div class="school">University of South Florida</div>
+                    <div class="education-details">Tampa, Florida • Aug 2016 - Dec 2017</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Bachelor of Technology in Computer Science</div>
+                    <div class="school">Amrita University</div>
+                    <div class="education-details">Coimbatore, India • Jul 2010 - May 2014</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
